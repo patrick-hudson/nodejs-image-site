@@ -13,9 +13,11 @@ logs
 results
 tmp
 coverage
+uploads
 
 # API keys
 .env
+s3_config.json
 
 # Dependency directory
 node_modules
@@ -28,3 +30,5 @@ bower_components
 # OS metadata
 .DS_Store
 Thumbs.db
+*._.DS_Store
+foundation_old

@@ -14,7 +14,36 @@ var exphbs = require('express-handlebars');
 var jwt = require('jsonwebtoken');
 var moment = require('moment');
 var request = require('request');
+var multer = require('multer');
+var crypto = require('crypto');
+var mime = require('mime');
+var multerS3 = require('multer-s3'),
+fs = require('fs'),
+AWS = require('aws-sdk');
+AWS.config.loadFromPath('./app/s3_config.json');
+var s3 = new AWS.S3();
+var storage =  multerS3({
+    s3: s3,
+    bucket: 'ul.gy',
+    contentType: function (req, file, cb) {
+      cb(null, file.mimetype)
+    },
+    filename: function (req, file, cb) {
+      crypto.pseudoRandomBytes(10, function (err, raw) {
+        cb(null, raw.toString('hex') + Date.now() + '.' + mime.extension(file.mimetype));
+      });
+    },
+    metadata: function (req, file, cb) {
+        cb(null, { fieldName: file.fieldname });
+    },
+    key: function (req, file, cb) {
+      crypto.pseudoRandomBytes(10, function (err, raw) {
+        cb(null, raw.toString('hex') + Date.now() + '.' + mime.extension(file.mimetype));
+      })
+    }
+});
 
+var upload = multer({ storage: storage });
 // Load environment variables from .env file
 dotenv.load();
 
@@ -28,7 +57,9 @@ var User = require('./models/User');
 // Controllers
 var userController = require('./controllers/user');
 var contactController = require('./controllers/contact');
-
+var uploadController = require('./controllers/upload');
+var galleryController = require('./controllers/gallery');
+var apiController = require('./controllers/api');
 // React and Server-Side Rendering
 var routes = require('./app/routes');
 var configureStore = require('./app/store/configureStore').default;
@@ -93,7 +124,12 @@ app.post('/login', userController.loginPost);
 app.post('/forgot', userController.forgotPost);
 app.post('/reset/:token', userController.resetPost);
 app.get('/unlink/:provider', userController.ensureAuthenticated, userController.unlink);
-
+app.post('/upload', upload.array('files'), uploadController.uploadFile);
+app.get('/gallery/list.json/:page', userController.ensureAuthenticated, galleryController.uploadGet);
+app.post('/api/getToken', apiController.getToken);
+app.post('/api/generateApiKey', apiController.setupApiKey);
+app.post('/api/generateApiKey/generate', userController.ensureAuthenticated, apiController.generateApiKey);
+//app.get('/upload', uploadController.uploadGet);
 // React server rendering
 app.use(function(req, res) {
   var initialState = {
@@ -104,6 +140,7 @@ app.use(function(req, res) {
   var store = configureStore(initialState);
 
   Router.match({ routes: routes.default(store), location: req.url }, function(err, redirectLocation, renderProps) {
+
     if (err) {
       res.status(500).send(err.message);
     } else if (redirectLocation) {
@@ -112,12 +149,13 @@ app.use(function(req, res) {
       var html = ReactDOM.renderToString(React.createElement(Provider, { store: store },
         React.createElement(Router.RouterContext, renderProps)
       ));
+      console.log(req.url);
       res.render('layouts/main', {
         html: html,
         initialState: store.getState()
       });
     } else {
-      res.sendStatus(404);
+      res.sendStatus(401);
     }
   });
 });

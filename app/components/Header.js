@@ -17,34 +17,44 @@ class Header extends React.Component {
   render() {
     const rightNav = this.props.token ? (
       <div className="top-bar-right">
-        <ul className="vertical medium-horizontal menu">
-          <li><Link to="/account" activeClassName="active">My Account</Link></li>
-          <li><a href="#" onClick={this.handleLogout.bind(this)}>Logout</a></li>
+        <ul className="dropdown menu" data-dropdown-menu>
+          <li className="has-submenu">
+          <a href="#0">Account</a>
+            <ul className="submenu menu vertical" data-submenu>
+              <li><a href="/account">My Account</a></li>
+              <li><a href="#" onClick={this.handleLogout.bind(this)}>Logout</a></li>
+            </ul>
+            </li>
         </ul>
       </div>
     ) : (
       <div className="top-bar-right">
-        <ul className="vertical medium-horizontal menu">
-          <li><Link to="/login" activeClassName="active">Log in</Link></li>
-          <li><Link to="/signup" activeClassName="active">Sign up</Link></li>
+        <ul className="menu">
+          <li><a href="/login">Log in</a></li>
+          <li><a href="/signup">Sign up</a></li>
         </ul>
       </div>
     );
+
+
+
     return (
-      <div className="top-bar">
-        <div className="top-bar-title">
+      <div>
+      <div className="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+        <button className="menu-icon" type="button" data-toggle="responsive-menu"></button>
+        <div className="title-bar-title">Menu</div>
+      </div>
+      <div className="top-bar" id="responsive-menu">
+        <div className="top-bar-left">
           <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
             <span className="menu-icon light" data-toggle></span>
           </span>
-          <IndexLink to="/">Project name</IndexLink>
+          <ul className="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/upload">Upload</a></li>
+            <li><a href="/gallery">My Library</a></li>
+          </ul>
         </div>
-        <div id="responsive-menu">
-          <div className="top-bar-left">
-            <ul className="vertical medium-horizontal menu">
-              <li><IndexLink to="/" activeClassName="active">Home</IndexLink></li>
-              <li><Link to="/contact" activeClassName="active">Contact</Link></li>
-            </ul>
-          </div>
           {rightNav}
         </div>
       </div>

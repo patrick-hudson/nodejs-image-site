@@ -42,25 +42,28 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="column row">
-        <div className="row">
-          <div className="medium-8 medium-offset-2 columns">
+      <div className="grid-container">
+        <div key="pageDiv" className="grid-x grid-padding-x callout secondary">
+          <div className="cell">
             <Messages messages={this.props.messages}/>
             <form onSubmit={this.handleLogin.bind(this)}>
               <h4>Log In</h4>
-              <label htmlFor="email">Email</label>
+              <label>Email
               <input type="email" name="email" id="email" placeholder="Email" value={this.state.email} onChange={this.handleChange.bind(this)} autoFocus/>
-              <label htmlFor="password">Password</label>
+              </label>
+              <label>Password
               <input type="password" name="password" id="password" placeholder="Password" value={this.state.password} onChange={this.handleChange.bind(this)}/>
+              </label>
               <p><Link to="/forgot">Forgot your password?</Link></p>
               <button type="submit" className="button">Log in</button>
             </form>
             <div className="hr-title"><span>or</span></div>
             <div className="button-group">
             </div>
-            <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
+            <p>Dont have an account? <Link to="/signup">Sign up</Link></p>
           </div>
         </div>
+        <title>Log In</title>
       </div>
     );
   }

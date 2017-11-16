@@ -10,6 +10,7 @@ export default function messages(state = {}, action) {
     case 'OAUTH_FAILURE':
     case 'UNLINK_FAILURE':
     case 'LINK_FAILURE':
+    case 'UPLOAD_FAILURE':
       return {
         error: action.messages
       };
@@ -17,6 +18,8 @@ export default function messages(state = {}, action) {
     case 'CHANGE_PASSWORD_SUCCESS':
     case 'RESET_PASSWORD_SUCCESS':
     case 'CONTACT_FORM_SUCCESS':
+    case 'UPLOAD_SUCCESS':
+    case 'COPIED_SUCCESS':
       return {
         success: action.messages
       };

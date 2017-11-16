@@ -23,6 +23,7 @@ export function login(email, password) {
             user: json.user
           });
           cookie.save('token', json.token, { expires: moment().add(1, 'hour').toDate() });
+          cookie.save('user_id', json.user.id, { expires: moment().add(1, 'hour').toDate() });
           browserHistory.push('/account');
         });
       } else {
@@ -74,7 +75,16 @@ export function logout() {
     type: 'LOGOUT_SUCCESS'
   };
 }
-
+export function getUserID() {
+  return (dispatch) => {
+    dispatch({
+      type: 'CLEAR_MESSAGES'
+    });
+    return fetch('/account').then((response) => {
+      console.log(response)
+    });
+  };
+}
 export function forgotPassword(email) {
   return (dispatch) => {
     dispatch({
