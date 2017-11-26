@@ -14,6 +14,7 @@ class Profile extends React.Component {
       location: props.user.location,
       website: props.user.website,
       gravatar: props.user.gravatar,
+      aKey: props.user.token,
       password: '',
       confirm: ''
     };
@@ -83,6 +84,10 @@ class Profile extends React.Component {
       <td>
       <label htmlFor="website">Website</label>
       <input type="text" name="website" id="website" value={this.state.website|| ''} onChange={this.handleChange.bind(this)}/>
+      </td>
+      <td>
+      <label htmlFor="website">Website</label>
+      <input type="text" name="apikey" id="apikey" value={this.state.aKey|| ''} onChange={this.handleChange.bind(this)} disabeled="true"/>
       </td>
       <td>
       &nbsp;

@@ -941,6 +941,7 @@ var Profile = function (_React$Component) {
       location: props.user.location,
       website: props.user.website,
       gravatar: props.user.gravatar,
+      aKey: props.user.token,
       password: '',
       confirm: ''
     };
@@ -1084,6 +1085,16 @@ var Profile = function (_React$Component) {
                       'Website'
                     ),
                     _react2.default.createElement('input', { type: 'text', name: 'website', id: 'website', value: this.state.website || '', onChange: this.handleChange.bind(this) })
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'label',
+                      { htmlFor: 'website' },
+                      'Website'
+                    ),
+                    _react2.default.createElement('input', { type: 'text', name: 'apikey', id: 'apikey', value: this.state.aKey || '', onChange: this.handleChange.bind(this), disabeled: 'true' })
                   ),
                   _react2.default.createElement(
                     'td',

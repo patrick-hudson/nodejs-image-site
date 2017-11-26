@@ -7,6 +7,7 @@ var qs = require('querystring');
 var nodemailer = require('nodemailer');
 var path = require('path');
 var User = require('../models/User');
+var uuidv4 = require('uuid/v4');
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 /**
@@ -121,6 +122,8 @@ exports.generateApiKey = function(req, res) {
 var token = req.headers;
 //console.log(token);
 console.log();
+var aKey = uuidv4();
+console.log(aKey);
 User
     .query(function (qb) {
       qb.where({id: req.user.id})
@@ -128,13 +131,13 @@ User
   })
     .fetch({require: true})
     .then(function(collection) {
-      collection.save('token', 'bob')
+      collection.save('token', aKey)
     })
   .then(function(user) {
         //res.send({ token: generateToken(user), user: user });
     })
 
-return res.status(200).send({ user_id: req.user.id , token: token.authorization });
+return res.status(200).send({ user_id: req.user.id , apiKey: aKey });
 
 //          new User({ email: req.body.email })
 //            .fetch()
