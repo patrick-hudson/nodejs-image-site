@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Messages from '../Messages';
 import Cookies from 'universal-cookie';
 var settings = require('../../../config/settings.js');
+import {Helmet} from "react-helmet";
 
 class Image extends React.Component {
   constructor(props) {
@@ -56,6 +57,9 @@ class Image extends React.Component {
       var bbcode = "[img]"+settings.short_url+this.state.image_name+"[/img]";
       return (
         <div className="grid-container">
+        <Helmet>
+          <title>View Image/ fileshr.io</title>
+        </Helmet>
         <div className="card">
           <div className="card-section">
             <center><img src={imgsrc} /></center>

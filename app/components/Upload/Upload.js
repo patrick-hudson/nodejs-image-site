@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { uploadfile } from '../../actions/upload';
 import { facebookLogin, twitterLogin, googleLogin, vkLogin, githubLogin } from '../../actions/oauth';
 import Messages from '../Messages';
+import {Helmet} from "react-helmet";
 
 class Upload extends React.Component {
   constructor(props) {
@@ -26,6 +27,9 @@ class Upload extends React.Component {
   render() {
     return (
       <div className="grid-container fluid">
+      <Helmet>
+        <title>(coming soon) Upload Files / fileshr.io</title>
+      </Helmet>
           <Messages messages={this.props.messages}/>
           <div className="alert callout" data-closable="" id="error" role="alertdialog" style={{display: "none"}}>
             <button tabIndex="0" className="close-button" aria-label="Close Alert" data-close="">&times;</button>

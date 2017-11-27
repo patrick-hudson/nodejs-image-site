@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { forgotPassword } from '../../actions/auth';
 import Messages from '../Messages';
+import {Helmet} from "react-helmet";
 
 class Forgot extends React.Component {
   constructor(props) {
@@ -21,6 +22,9 @@ class Forgot extends React.Component {
   render() {
     return (
       <div className="grid-container">
+      <Helmet>
+        <title>Forgot Password / fileshr.io</title>
+      </Helmet>
         <div className="grid-x">
           <div className="cell">
             <div className="callout large alert">

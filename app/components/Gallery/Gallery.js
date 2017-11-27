@@ -9,6 +9,7 @@ import Cookies from 'universal-cookie';
 import Messages from '../Messages';
 import copy from 'copy-to-clipboard';
 var settings = require('../../../config/settings.js');
+import {Helmet} from "react-helmet";
 var crypto = require('crypto');
 crypto.randomBytes(4, function(err, buffer) {
   var random = buffer.toString('hex');
@@ -152,12 +153,14 @@ randomValueHex (len) {
     return (
 
 <div className="grid-container fluid">
+<Helmet>
+  <title>My Gallery / fileshr.io</title>
+</Helmet>
       <div key="test" id="main-row" data-equalizer data-equalize-on="medium" className="grid-x grid-padding-x small-up-2 medium-up-6 large-up-8">
 
           {content}
 </div>
 <div>
-      <title>Gallery</title>
       </div>
       <div className="grid-container fluid">
       <div key="pageDiv" className="grid-x grid-padding-x">

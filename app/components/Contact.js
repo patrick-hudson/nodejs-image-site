@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { submitContactForm } from '../actions/contact';
 import Messages from './Messages';
+import {Helmet} from "react-helmet";
 
 class Contact extends React.Component {
   constructor(props) {
@@ -21,6 +22,9 @@ class Contact extends React.Component {
   render() {
     return (
       <div className="expanded row">
+      <Helmet>
+        <title>Contact Us / fileshr.io</title>
+      </Helmet>
         <div className="row">
           <h3>Contact Form</h3>
           <Messages messages={this.props.messages}/>

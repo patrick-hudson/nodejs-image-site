@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { signup } from '../../actions/auth';
 import { facebookLogin, twitterLogin, googleLogin, vkLogin, githubLogin } from '../../actions/oauth';
 import Messages from '../Messages';
+import {Helmet} from "react-helmet";
 
 class Signup extends React.Component {
   constructor(props) {
@@ -43,6 +44,9 @@ class Signup extends React.Component {
   render() {
     return (
       <div className="grid-container">
+      <Helmet>
+        <title>(coming soon) Sign Up / fileshr.io</title>
+      </Helmet>
         <div className="grid-x">
           <div className="cell">
             <div className="callout large alert">
