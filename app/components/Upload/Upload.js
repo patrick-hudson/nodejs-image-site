@@ -28,7 +28,7 @@ class Upload extends React.Component {
     return (
       <div className="grid-container fluid">
       <Helmet>
-        <title>(coming soon) Upload Files / fileshr.io</title>
+        <title>(coming soon) Upload Files / fileshr.io / File sharing for the masses</title>
       </Helmet>
           <Messages messages={this.props.messages}/>
           <div className="alert callout" data-closable="" id="error" role="alertdialog" style={{display: "none"}}>

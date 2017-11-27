@@ -236,7 +236,7 @@ randomValueHex (len) {
 
 <div className="grid-container fluid">
 <Helmet>
-  <title>My Gallery / fileshr.io</title>
+  <title>My Gallery / fileshr.io / File sharing for the masses</title>
 </Helmet>
       <div key="test" id="main-row" data-equalizer data-equalize-on="medium" className="grid-x grid-padding-x small-up-2 medium-up-6 large-up-8">
 

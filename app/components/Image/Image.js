@@ -68,7 +68,7 @@ class Image extends React.Component {
       return (
         <div className="grid-container">
         <Helmet>
-          <title>View Image/ fileshr.io</title>
+          <title>View Image / fileshr.io / File sharing for the masses</title>
         </Helmet>
         <div className="card">
           <div className="card-section">

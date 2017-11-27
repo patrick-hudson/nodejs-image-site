@@ -23,7 +23,7 @@ class Reset extends React.Component {
     return (
       <div className="grid-container">
       <Helmet>
-        <title>Reset Password / fileshr.io</title>
+        <title>Reset Password / fileshr.io / File sharing for the masses</title>
       </Helmet>
         <div className="grid-x">
           <div className="cell">

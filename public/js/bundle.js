@@ -730,7 +730,7 @@ var Forgot = function (_React$Component) {
           _react2.default.createElement(
             'title',
             null,
-            'Forgot Password / fileshr.io'
+            'Forgot Password / fileshr.io / File sharing for the masses'
           )
         ),
         _react2.default.createElement(
@@ -889,7 +889,7 @@ var Login = function (_React$Component) {
           _react2.default.createElement(
             'title',
             null,
-            '(coming soon) Login / fileshr.io'
+            '(coming soon) Login / fileshr.io / File sharing for the masses'
           )
         ),
         _react2.default.createElement(
@@ -1503,7 +1503,7 @@ var Reset = function (_React$Component) {
           _react2.default.createElement(
             'title',
             null,
-            'Reset Password / fileshr.io'
+            'Reset Password / fileshr.io / File sharing for the masses'
           )
         ),
         _react2.default.createElement(
@@ -1657,7 +1657,7 @@ var Signup = function (_React$Component) {
           _react2.default.createElement(
             'title',
             null,
-            '(coming soon) Sign Up / fileshr.io'
+            '(coming soon) Sign Up / fileshr.io / File sharing for the masses'
           )
         ),
         _react2.default.createElement(
@@ -1852,7 +1852,7 @@ var Contact = function (_React$Component) {
           _react2.default.createElement(
             'title',
             null,
-            'Contact Us / fileshr.io'
+            'Contact Us / fileshr.io / File sharing for the masses'
           )
         ),
         _react2.default.createElement(
@@ -2319,7 +2319,7 @@ var Gallery = function (_React$Component) {
           _react2.default.createElement(
             'title',
             null,
-            'My Gallery / fileshr.io'
+            'My Gallery / fileshr.io / File sharing for the masses'
           )
         ),
         _react2.default.createElement(
@@ -2786,7 +2786,7 @@ var Image = function (_React$Component) {
             _react2.default.createElement(
               'title',
               null,
-              'View Image/ fileshr.io'
+              'View Image / fileshr.io / File sharing for the masses'
             )
           ),
           _react2.default.createElement(
@@ -3026,7 +3026,7 @@ var ShareImage = function (_React$Component) {
           _react2.default.createElement(
             'title',
             null,
-            'Share Image/ fileshr.io'
+            'Share Image / fileshr.io / File sharing for the masses'
           )
         ),
         _react2.default.createElement(
@@ -3210,7 +3210,7 @@ var NotFound = function NotFound(props) {
       _react2.default.createElement(
         "title",
         null,
-        "404 Not Found / fileshr.io"
+        "404 Not Found / fileshr.io / File sharing for the masses"
       )
     ),
     _react2.default.createElement(
@@ -3302,7 +3302,7 @@ var Upload = function (_React$Component) {
           _react2.default.createElement(
             'title',
             null,
-            '(coming soon) Upload Files / fileshr.io'
+            '(coming soon) Upload Files / fileshr.io / File sharing for the masses'
           )
         ),
         _react2.default.createElement(_Messages2.default, { messages: this.props.messages }),

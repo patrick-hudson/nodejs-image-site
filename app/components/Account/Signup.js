@@ -45,7 +45,7 @@ class Signup extends React.Component {
     return (
       <div className="grid-container">
       <Helmet>
-        <title>(coming soon) Sign Up / fileshr.io</title>
+        <title>(coming soon) Sign Up / fileshr.io / File sharing for the masses</title>
       </Helmet>
         <div className="grid-x">
           <div className="cell">

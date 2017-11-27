@@ -32,3 +32,4 @@ bower_components
 Thumbs.db
 *._.DS_Store
 foundation_old
+__MACOSX

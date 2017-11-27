@@ -60,7 +60,7 @@ class ShareImage extends React.Component {
     return (
       <div className="grid-container">
       <Helmet>
-        <title>Share Image/ fileshr.io</title>
+        <title>Share Image / fileshr.io / File sharing for the masses</title>
       </Helmet>
       <div className="card">
         <div className="card-section">

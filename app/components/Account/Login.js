@@ -45,7 +45,7 @@ class Login extends React.Component {
     return (
       <div className="grid-container">
       <Helmet>
-        <title>(coming soon) Login / fileshr.io</title>
+        <title>(coming soon) Login / fileshr.io / File sharing for the masses</title>
       </Helmet>
         <div key="pageDiv" className="grid-x grid-padding-x callout secondary">
           <div className="cell">

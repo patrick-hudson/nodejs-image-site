@@ -23,7 +23,7 @@ class Forgot extends React.Component {
     return (
       <div className="grid-container">
       <Helmet>
-        <title>Forgot Password / fileshr.io</title>
+        <title>Forgot Password / fileshr.io / File sharing for the masses</title>
       </Helmet>
         <div className="grid-x">
           <div className="cell">

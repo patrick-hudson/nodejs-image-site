@@ -23,7 +23,7 @@ class Contact extends React.Component {
     return (
       <div className="expanded row">
       <Helmet>
-        <title>Contact Us / fileshr.io</title>
+        <title>Contact Us / fileshr.io / File sharing for the masses</title>
       </Helmet>
         <div className="row">
           <h3>Contact Form</h3>
