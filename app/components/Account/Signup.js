@@ -43,31 +43,41 @@ class Signup extends React.Component {
   render() {
     return (
       <div className="grid-container">
-        <div key="pageDiv" className="grid-x grid-padding-x callout secondary">
+        <div className="grid-x">
           <div className="cell">
-            <Messages messages={this.props.messages}/>
-            <form onSubmit={this.handleSignup.bind(this)}>
-              <h4>Create an account</h4>
-              <label>Name
-              <input type="text" name="name" id="name" placeholder="Name" value={this.state.name} onChange={this.handleChange.bind(this)} autoFocus/>
-              </label>
-              <label>Email
-              <input type="email" name="email" id="email" placeholder="Email" value={this.state.email} onChange={this.handleChange.bind(this)}/>
-              </label>
-              <label>Password
-              <input type="password" name="password" id="password" placeholder="Password" value={this.state.password} onChange={this.handleChange.bind(this)}/>
-              </label>
-              <p className="help-text">By signing up, you agree to the <Link to="/">Terms of Service</Link>.</p>
-              <button type="submit" className="button">Create an account</button>
-            </form>
+            <div className="callout large alert">
+              <h2>Error</h2>
+              <p>Sorry, Signups are closed</p>
+              <p>If you feel this is an error, please contact us.</p>
             </div>
-            <div className="hr-title"><span>or</span></div>
-            <div className="button-group">
             </div>
-            <p>Already have an account? <Link to="/login">Log in</Link></p>
         </div>
-        <title>Sign Up</title>
-      </div>
+              </div>
+        //<div key="pageDiv" className="grid-x grid-padding-x callout secondary">
+        //  <div className="cell">
+        //    <Messages messages={this.props.messages}/>
+        //    <form onSubmit={this.handleSignup.bind(this)}>
+        //      <h4>Create an account</h4>
+        //      <label>Name
+        //      <input type="text" name="name" id="name" placeholder="Name" value={this.state.name} onChange={this.handleChange.bind(this)} autoFocus/>
+        //      </label>
+        //      <label>Email
+        //      <input type="email" name="email" id="email" placeholder="Email" value={this.state.email} onChange={this.handleChange.bind(this)}/>
+        //      </label>
+        //      <label>Password
+        //      <input type="password" name="password" id="password" placeholder="Password" value={this.state.password} //onChange={this.handleChange.bind(this)}/>
+        //      </label>
+        //      <p className="help-text">By signing up, you agree to the <Link to="/">Terms of Service</Link>.</p>
+        //      <button type="submit" className="button">Create an account</button>
+        //    </form>
+        //    </div>
+        //    <div className="hr-title"><span>or</span></div>
+        //    <div className="button-group">
+        //    </div>
+        //    <p>Already have an account? <Link to="/login">Log in</Link></p>
+        //</div>
+        //<title>Sign Up</title>
+
     );
   }
 }

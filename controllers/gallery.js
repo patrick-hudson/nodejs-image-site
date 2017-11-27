@@ -20,7 +20,7 @@ exports.uploadGet = function(req, res) {
   var pageCount = pageCount *20;
   Upload
     .query(function (qb) {
-        qb.limit(20).offset(pageCount).orderBy('id','DESC');
+        qb.limit(20).offset(pageCount).orderBy('id','DESC').where('user_id', req.user.id);
     })
     .fetchAll()
     .then(function(collection) {

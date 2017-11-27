@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { login } from '../../actions/auth';
 import { facebookLogin, twitterLogin, googleLogin, vkLogin, githubLogin } from '../../actions/oauth';
 import Messages from '../Messages';
+import {Helmet} from "react-helmet";
 
 class Login extends React.Component {
   constructor(props) {
@@ -43,6 +44,9 @@ class Login extends React.Component {
   render() {
     return (
       <div className="grid-container">
+      <Helmet>
+        <title>(coming soon) Login / fileshr.io</title>
+      </Helmet>
         <div key="pageDiv" className="grid-x grid-padding-x callout secondary">
           <div className="cell">
             <Messages messages={this.props.messages}/>

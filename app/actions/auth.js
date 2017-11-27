@@ -184,7 +184,62 @@ export function updateProfile(state, token) {
     });
   };
 }
-
+export function generateApiKey(state, token) {
+  return (dispatch) => {
+    dispatch({
+      type: 'CLEAR_MESSAGES'
+    });
+    return fetch('/api/generateApiKey/generate', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        email: state.email,
+        name: state.name,
+        gender: state.gender,
+        location: state.location,
+        website: state.website
+      })
+    }).then((response) => {
+      if (response.ok) {
+        return response.json()
+        .then((json) => {
+          dispatch({
+            type: 'UPDATE_PROFILE_SUCCESS',
+            messages: [json]
+          });
+        });
+      } else {
+        return response.json().then((json) => {
+          dispatch({
+            type: 'UPDATE_PROFILE_FAILURE',
+            messages: Array.isArray(json) ? json : [json]
+          });
+        });
+      }
+    });
+  };
+}
+export function getApiKey(state, token) {
+  return (dispatch) => {
+    return fetch('/api/getApiKey', {
+      method: 'get',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    }).then((response) => {
+      return response.json().then((json) => {
+        dispatch({
+          type: 'API_CHANGE_SUCCESS',
+          apiKey: json.apiKey
+        });
+      });
+    });
+  };
+}
 export function changePassword(password, confirm, token) {
   return (dispatch) => {
     dispatch({

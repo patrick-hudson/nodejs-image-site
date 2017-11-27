@@ -9,7 +9,7 @@ var User = require('../models/User');
 
 function generateToken(user) {
   var payload = {
-    iss: '18.216.197.146:3000',
+    iss: 'fileshr.io',
     sub: user.id,
     iat: moment().unix(),
     exp: moment().add(7, 'days').unix()

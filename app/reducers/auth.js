@@ -13,8 +13,13 @@ export default function auth(state = initialState, action) {
     case 'OAUTH_SUCCESS':
       return Object.assign({}, state, {
         token: action.token,
-        user: action.user
+        user: action.user,
+        apiKey: action.apiKey
       });
+      case 'API_CHANGE_SUCCESS':
+        return Object.assign({}, state, {
+          apiKey: action.apiKey
+        });
     case 'LOGOUT_SUCCESS':
       return initialState;
     default:

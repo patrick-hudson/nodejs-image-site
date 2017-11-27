@@ -46,9 +46,6 @@ class Header extends React.Component {
       </div>
       <div className="top-bar" id="responsive-menu">
         <div className="top-bar-left">
-          <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
-            <span className="menu-icon light" data-toggle></span>
-          </span>
           <ul className="menu">
             <li><a href="/">Home</a></li>
             <li><a href="/upload">Upload</a></li>

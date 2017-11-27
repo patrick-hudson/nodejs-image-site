@@ -8,6 +8,7 @@ import { instanceOf } from 'prop-types';
 import Cookies from 'universal-cookie';
 import Messages from '../Messages';
 import copy from 'copy-to-clipboard';
+var settings = require('../../../config/settings.js');
 var crypto = require('crypto');
 crypto.randomBytes(4, function(err, buffer) {
   var random = buffer.toString('hex');
@@ -129,7 +130,8 @@ randomValueHex (len) {
       content = Object.keys(this.state.data).map(key => {
        var random = this.randomValueHex(4);
        var random = this.randomValueHex(4);
-       var imgsrc = "http://ul.gy/" + this.state.data[key].file_id + this.state.data[key].file_ext;
+       var imgsrc = settings.short_url + this.state.data[key].file_id + this.state.data[key].file_ext;
+       var mngurl = settings.base_url + "image/" + this.state.data[key].file_id.toString()
        return (
        <div key={this.randomValueHex(4)} className="cell clearfix">
        <div key={this.randomValueHex(4)} className="callout" data-equalizer-watch="">
@@ -137,7 +139,7 @@ randomValueHex (len) {
        <a href={imgsrc} className="right"><i className="fi-link">&nbsp;</i></a>
        <img key={this.randomValueHex(4)} className="thumbnail" src={imgsrc} />
        <div key={this.randomValueHex(4)} className="cell">
-       <a href="" className="button alert tiny">Manage Image</a>
+       <a href={mngurl} className="button alert tiny">Manage Image</a>
        </div>
        </div>
        </div>

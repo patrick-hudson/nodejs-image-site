@@ -17,6 +17,7 @@ var request = require('request');
 var multer = require('multer');
 var crypto = require('crypto');
 var mime = require('mime');
+const Helmet = require("react-helmet").default;
 var multerS3 = require('multer-s3'),
 fs = require('fs'),
 AWS = require('aws-sdk');
@@ -42,7 +43,6 @@ var storage =  multerS3({
       })
     }
 });
-
 var upload = multer({ storage: storage });
 // Load environment variables from .env file
 dotenv.load();
@@ -60,6 +60,7 @@ var contactController = require('./controllers/contact');
 var uploadController = require('./controllers/upload');
 var galleryController = require('./controllers/gallery');
 var apiController = require('./controllers/api');
+var imageController = require('./controllers/image');
 // React and Server-Side Rendering
 var routes = require('./app/routes');
 var configureStore = require('./app/store/configureStore').default;
@@ -127,8 +128,11 @@ app.get('/unlink/:provider', userController.ensureAuthenticated, userController.
 app.post('/upload', upload.array('files'), uploadController.uploadFile);
 app.get('/gallery/list.json/:page', userController.ensureAuthenticated, galleryController.uploadGet);
 app.post('/api/getToken', apiController.getToken);
+app.get('/api/getApiKey', apiController.getApiKey);
 app.post('/api/generateApiKey', apiController.setupApiKey);
 app.post('/api/generateApiKey/generate', userController.ensureAuthenticated, apiController.generateApiKey);
+app.post('/api/upload', apiController.checkApiKey, upload.array('files'), apiController.uploadFile);
+app.post('/image/checkPermissions', userController.ensureAuthenticated, imageController.checkPermissions);
 //app.get('/upload', uploadController.uploadGet);
 // React server rendering
 app.use(function(req, res) {
@@ -149,9 +153,10 @@ app.use(function(req, res) {
       var html = ReactDOM.renderToString(React.createElement(Provider, { store: store },
         React.createElement(Router.RouterContext, renderProps)
       ));
-      console.log(req.url);
+      const helmet = Helmet.renderStatic();
       res.render('layouts/main', {
         html: html,
+        title: helmet.title.toString(),
         initialState: store.getState()
       });
     } else {
