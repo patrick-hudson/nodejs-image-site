@@ -2189,22 +2189,77 @@ var Gallery = function (_React$Component) {
               var imgsrc = settings.short_url + _this3.state.data[key].file_id + _this3.state.data[key].file_ext;
               break;
             case ".mkv":
-            case ".flv":
+              var imgsrc = "/images/mkv.png";
+              break;
             case ".avi":
+              var imgsrc = "/images/avi.png";
+              break;
             case ".mov":
+              var imgsrc = "/images/mov.png";
+              break;
             case ".wmv":
+              var imgsrc = "/images/wmv.png";
+              break;
             case ".mp4":
+              var imgsrc = "/images/mp4.png";
+              break;
             case ".mpg":
             case ".mpeg":
+              var imgsrc = "/images/mpeg.png";
+              break;
+            case ".flv":
             case ".m4v":
-              var imgsrc = "";
+              var imgsrc = "/images/video.png";
+              break;
+            case ".7z":
+              var imgsrc = "/images/7z.png";
+              break;
+            case ".ai":
+              var imgsrc = "/images/ai.png";
+              break;
+            case ".bin":
+              var imgsrc = "/images/bin.png";
+              break;
+            case ".csv":
+              var imgsrc = "/images/csv.png";
+              break;
+            case ".doc":
+            case ".docx":
+              var imgsrc = "/images/doc.png";
+              break;
+            case ".html":
+              var imgsrc = "/images/html.png";
+              break;
+            case ".iso":
+              var imgsrc = "/images/iso.png";
+              break;
+            case ".jar":
+              var imgsrc = "/images/jar.png";
+              break;
+            case ".pdf":
+              var imgsrc = "/images/pdf.png";
+              break;
+            case ".ppt":
+              var imgsrc = "/images/ppt.png";
+              break;
+            case ".py":
+              var imgsrc = "/images/py.png";
+              break;
+            case ".rar":
+              var imgsrc = "/images/rar.png";
+              break;
+            case ".txt":
+              var imgsrc = "/images/txt.png";
+              break;
+            case ".zip":
+              var imgsrc = "/images/zip.png";
+              break;
+            case ".xls":
+            case ".xlsx":
+              var imgsrc = "/images/xls.png";
               break;
             default:
               console.log('Default case');
-          }
-          var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
-          if (_validFileExtensions.indexOf(_this3.state.data[key].file_ext) === -1) {
-            var imgsrc = "http://ul.gy/a9O99.png";
           }
 
           var mngurl = settings.base_url + "image/" + _this3.state.data[key].file_id.toString();

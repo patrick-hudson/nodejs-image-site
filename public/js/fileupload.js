@@ -8,7 +8,7 @@ var myDropzone = new Dropzone("#drop", {
     maxFiles: 100,
     timeout: 600000,
     dictDefaultMessage: 'Drag an image here to upload, or click to select one',
-    acceptedFiles: '.png, .jpg, .jpeg, .gif, .webm, .zip, .7z, .txt, .tar, .gz, .iso, .mp4',
+    acceptedFiles: '.png, .jpg, .jpeg, .gif, .webm, .zip, .7z, .txt, .tar, .gz, .iso, .mp4, .pdf, .docx, .xlsx, .csv',
     url: "/upload",
     previewTemplate: previewTemplate,
     autoQueue: false, // Make sure the files aren't queued until manually added
