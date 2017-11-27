@@ -30,16 +30,16 @@ var storage =  multerS3({
       cb(null, file.mimetype)
     },
     filename: function (req, file, cb) {
-      crypto.pseudoRandomBytes(10, function (err, raw) {
-        cb(null, raw.toString('hex') + Date.now() + '.' + mime.extension(file.mimetype));
+      crypto.pseudoRandomBytes(5, function (err, raw) {
+        cb(null, raw.toString('hex') + '.' + mime.extension(file.mimetype));
       });
     },
     metadata: function (req, file, cb) {
         cb(null, { fieldName: file.fieldname });
     },
     key: function (req, file, cb) {
-      crypto.pseudoRandomBytes(10, function (err, raw) {
-        cb(null, raw.toString('hex') + Date.now() + '.' + mime.extension(file.mimetype));
+      crypto.pseudoRandomBytes(5, function (err, raw) {
+        cb(null, raw.toString('hex') + '.' + mime.extension(file.mimetype));
       })
     }
 });
@@ -133,6 +133,7 @@ app.post('/api/generateApiKey', apiController.setupApiKey);
 app.post('/api/generateApiKey/generate', userController.ensureAuthenticated, apiController.generateApiKey);
 app.post('/api/upload', apiController.checkApiKey, upload.array('files'), apiController.uploadFile);
 app.post('/image/checkPermissions', userController.ensureAuthenticated, imageController.checkPermissions);
+app.post('/image/:imageid/info', imageController.imageInfo);
 //app.get('/upload', uploadController.uploadGet);
 // React server rendering
 app.use(function(req, res) {

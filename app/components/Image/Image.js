@@ -9,8 +9,7 @@ import {Helmet} from "react-helmet";
 class Image extends React.Component {
   constructor(props) {
     super(props);
-    //console.log(props.user);
-    this.state = { image_id: '', original_userid: '', user_id: '', imageOwnedByUser: '', image_name: ''};
+    this.state = { image_id: '', original_userid: '', user_id: '', imageOwnedByUser: '', image_name: '', image_ext: ''};
   }
   componentWillMount() {
     const cookies = new Cookies();
@@ -36,7 +35,9 @@ class Image extends React.Component {
             if (json['0'].user_id == this.props.route.user_id.id){
               this.setState({
                imageOwnedByUser: true,
-               image_name: json['0'].file_id + json['0'].file_ext
+               image_name: json['0'].file_id + json['0'].file_ext,
+               image_ext: json['0'].file_ext,
+               image_id: json['0'].file_id
              })
             }
 
@@ -53,8 +54,17 @@ class Image extends React.Component {
   render() {
     console.log(settings);
     if(this.state.imageOwnedByUser){
-      var imgsrc = settings.short_url+this.state.image_name;
-      var bbcode = "[img]"+settings.short_url+this.state.image_name+"[/img]";
+      var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+      if(_validFileExtensions.indexOf(this.state.image_ext) === -1){
+        var imgsrc = "http://ul.gy/a9O99.png";
+        var bbcode = "BBCode Not Valid for this file type";
+        var directlink = settings.short_url + this.state.image_name;
+      }
+      else{
+        var imgsrc = settings.short_url + this.state.image_name;
+        var bbcode = "[img]"+settings.short_url+this.state.image_name+"[/img]";
+        var directlink = settings.short_url + this.state.image_name;
+      }
       return (
         <div className="grid-container">
         <Helmet>
@@ -68,7 +78,12 @@ class Image extends React.Component {
             <div className="grid-x grid-margin-x">
               <div className="medium-6 cell">
               <label>Direct Link
-                <input type="text" disabled='true' value={imgsrc} />
+                <input type="text" disabled='true' value={directlink} />
+              </label>
+              </div>
+              <div className="medium-6 cell">
+              <label>Share Link
+                <input type="text" disabled='true' value={settings.base_url + 'image/' + this.state.image_id+'/share'} />
               </label>
               </div>
               <div className="medium-6 cell">

@@ -12,6 +12,7 @@ import Reset from './components/Account/Reset';
 import Upload from './components/Upload/Upload';
 import Gallery from './components/Gallery/Gallery';
 import Image from './components/Image/Image';
+import ShareImage from './components/Image/ShareImage';
 export default function getRoutes(store) {
   const ensureAuthenticated = (nextState, replace) => {
     if (!store.getState().auth.token) {
@@ -47,6 +48,7 @@ export default function getRoutes(store) {
       <Route path="/gallery" onEnter={ensureAuthenticated} component={Gallery} onLeave={clearMessages}/>
       <Route path="/gallery/:page" onEnter={ensureAuthenticated} component={Gallery} onLeave={clearMessages}/>
       <Route path="/image/:imageid" onEnter={ensureAuthenticated} component={Image} onLeave={clearMessages} user_id={store.getState().auth.user}/>
+      <Route path="/image/:imageid/share" component={ShareImage} onLeave={clearMessages}/>
       <Route path="*" component={NotFound} onLeave={clearMessages}/>
     </Route>
   );

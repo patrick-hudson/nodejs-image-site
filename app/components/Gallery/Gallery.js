@@ -131,7 +131,34 @@ randomValueHex (len) {
       content = Object.keys(this.state.data).map(key => {
        var random = this.randomValueHex(4);
        var random = this.randomValueHex(4);
-       var imgsrc = settings.short_url + this.state.data[key].file_id + this.state.data[key].file_ext;
+       switch (this.state.data[key].file_ext)
+       {
+          case ".jpg":
+          case ".jpeg":
+          case ".bmp":
+          case ".gif":
+          case ".png":
+              var imgsrc = settings.short_url + this.state.data[key].file_id + this.state.data[key].file_ext;
+              break;
+          case ".mkv":
+          case ".flv":
+          case ".avi":
+          case ".mov":
+          case ".wmv":
+          case ".mp4":
+          case ".mpg":
+          case ".mpeg":
+          case ".m4v":
+            var imgsrc = "";
+            break;
+          default:
+              console.log('Default case');
+       }
+       var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+       if(_validFileExtensions.indexOf(this.state.data[key].file_ext) === -1){
+         var imgsrc = "http://ul.gy/a9O99.png";
+       }
+
        var mngurl = settings.base_url + "image/" + this.state.data[key].file_id.toString()
        return (
        <div key={this.randomValueHex(4)} className="cell clearfix">
@@ -140,7 +167,7 @@ randomValueHex (len) {
        <a href={imgsrc} className="right"><i className="fi-link">&nbsp;</i></a>
        <img key={this.randomValueHex(4)} className="thumbnail" src={imgsrc} />
        <div key={this.randomValueHex(4)} className="cell">
-       <a href={mngurl} className="button alert tiny">Manage Image</a>
+       <a href={mngurl} className="button alert tiny">Manage File</a>
        </div>
        </div>
        </div>

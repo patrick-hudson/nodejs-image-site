@@ -8,13 +8,13 @@ class Home extends React.Component {
     return (
       <div className="grid-container fluid">
       <Helmet>
-        <title>(coming soon) Home / fileshr.io / File sharing for the masses</title>
+        <title>(coming soon™) Home / fileshr.io / File sharing for the masses</title>
       </Helmet>
         <div key="pageDiv" className="grid-x grid-padding-x callout secondary">
           <div className="cell">
             <Messages messages={this.props.messages}/>
             <h3>Oh Hai</h3>
-            <p>You have sadly come too early. Public beta soon.</p>
+            <p>You have sadly come too early. Public beta soon (tm).</p>
             </div>
             </div>
         </div>
