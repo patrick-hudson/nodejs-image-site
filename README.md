@@ -1,5 +1,6 @@
 ## Work in progress
 
+#nodejs-image-site [![CircleCI](https://circleci.com/gh/patrick-hudson/nodejs-image-site/tree/master.svg?style=svg)](https://circleci.com/gh/patrick-hudson/nodejs-image-site/tree/master)
 
 ### License
 The MIT License (MIT)
